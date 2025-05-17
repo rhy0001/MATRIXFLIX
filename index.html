@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MatrixFlix</title>
+    <link rel="stylesheet" href="./Imagenes/">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #141414;
+            color: #fff;
+            font-family: sans-serif;
+            margin: 0;
+
+        }
+
+        h2 {
+            color: #09e514;
+        }
+
+        .header {
+            /* background-color: #000; */
+            padding: 15px 20px;
+            background-image: url(./Imagenes/matrix.gif);
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 1.5rem;
+            color: #09e514;
+            /* Rojo Netflix */
+        }
+
+        .background-section {
+            position: relative;
+            height: 500px;
+            /* Ajusta la altura según necesites */
+            background-image: url('https://image.tmdb.org/t/p/original/56v2KjZH95Ot7Ob1Cn2xJjDur5c.jpg');
+            /* Reemplaza con tu imagen */
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+        }
+
+        .fixed-info {
+            position: fixed;
+            left: 50px;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.6);
+            color: #09e514;
+            padding: 20px;
+            border-radius: 5px;
+            width: 300px;
+            /* Ajusta el ancho según necesites */
+        }
+
+        .fixed-info h2 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: #09e514;
+        }
+
+        .fixed-info p {
+            font-size: 1rem;
+            line-height: 1.5;
+            color: #ddd;
+        }
+
+        .row-container {
+            padding: 20px;
+        }
+
+        .miniatura {
+            background-color: #222;
+            width: 200px;
+            height: 120px;
+            margin-right: 10px;
+            display: inline-block;
+            background-size: cover;
+            background-position: center;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .miniatura:hover {
+            opacity: 0.8;
+        }
+
+        #ttl-pf {
+            margin-left: -50px;
+        }
+
+        .bg-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            filter: brightness(0.7);
+            z-index: -1;
+        }
+
+        .carousel-item {
+            position: relative;
+            overflow: hidden;
+            height: 700px;
+        }
+
+        .fixed-info {
+            position: absolute;
+            top: 50%;
+            left: 50px;
+            transform: translateY(-75%);
+            z-index: 10;
+            width: 40%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="header">
+        <h1>MiFlix</h1>
+    </header>
+    <!-- Esta parte del codigo es para el carousel -->
+    <section class="principal position-relative">
+        <div id="carrPrin" class="carousel slide" data-bs-ride="carousel" data-bs-interval="1500">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="bg-image" style="background-image: url('./Imagenes/hobbit.jpg');"></div>
+                </div>
+                <div class="carousel-item">
+                    <div class="bg-image" style="background-image: url('./Imagenes/robocop.jpg');"></div>
+                </div>
+                <div class="carousel-item">
+                    <div class="bg-image" style="background-image: url('Imagenes/1917.jpg');"></div>
+                </div>
+                <div class="carousel-item">
+                    <div class="bg-image" style="background-image: url('Imagenes/venom.jpg');"></div>
+                </div>
+                <div class="carousel-item">
+                    <div class="bg-image" style="background-image: url('Imagenes/vengadores.jpg');"></div>
+                </div>
+            </div>
+        </div>
+<!-- el selector de la pelicula que nos anuncia mas detalles de cada una de las peliculas añadidas a la pagina web -->
+        <section class="background-section">
+            <div class="fixed-info">
+                <h2 id="titulo-principal">Stranger Things</h2>
+                <p id="descripcion-principal">Cuando un niño desaparece, su madre, un jefe de policía y sus amigos deben
+                    enfrentarse a fuerzas aterradoras para recuperarlo.</p>
+                <img src="" alt="">
+            </div>
+        </section>
+<!-- peliculas populares con informacion asociada que luego se prevusializa en el selector de peliculas -->
+        <div class="container-fluid row-container">
+            <h2>Populares en MiFlix</h2>
+            <div class="row flex-nowrap overflow-auto">
+                <div class="col-auto miniatura" data-titulo="Stranger Things"
+                    data-descripcion="Cuando un niño desaparece, su madre, un jefe de policía y sus amigos deben enfrentarse a fuerzas aterradoras para recuperarlo."
+                    style="background-image: url('./Imagenes/stranger.jpg');">
+                </div>
+                <div class="col-auto miniatura" data-titulo="Los Bridgerton"
+                    data-descripcion="Ocho hermanos de la poderosa familia Bridgerton intentan encontrar el amor y la felicidad en la alta sociedad londinense."
+                    style="background-image: url('./Imagenes/bridgerton.jpg');">
+                </div>
+                <div class="col-auto miniatura" data-titulo="El Juego del Calamar"
+                    data-descripcion="Cientos de personas con problemas económicos aceptan una extraña invitación a un juego de supervivencia. Les espera un premio millonario, pero las apuestas son altas y mortales."
+                    style="background-image: url('./Imagenes/calamar.jpg');">
+                </div>
+            </div>
+            <br>
+            <div class="col-auto miniatura" data-titulo="The Witcher"
+                data-descripcion="El brujo Geralt de Rivia, un cazador de monstruos mutante, viaja en busca de su destino en un mundo turbulento donde a menudo los humanos demuestran ser más malvados que las bestias."
+                style="background-image: url('./Imagenes/witcher.jpg');">
+            </div>
+            <div class="col-auto miniatura" data-titulo="Peaky Blinders"
+                data-descripcion="Una saga familiar de gánsteres ambientada en Inglaterra justo después de la Primera Guerra Mundial se centra en la pandilla Peaky Blinders y su ambicioso y astuto líder, Tommy Shelby."
+                style="background-image: url('./Imagenes/peaky.jpg');">
+            </div>
+        </div>
+        </div>
+
+        <div class="container-fluid row-container">
+            <h2>Tendencias ahora</h2>
+            <div class="row flex-nowrap overflow-auto">
+                <div class="col-auto miniatura" data-titulo="The Equalizer"
+                    data-descripcion="Un asesino convertido en un ejemplar ciudadano se encuentra con una estrambótica situación que le hará volver a asesinar"
+                    style="background-image: url('./Imagenes/equalizer.jpg');">
+                </div>
+                <div class="col-auto miniatura" data-titulo="Harry Potter y el prisionero de Azkaban"
+                    data-descripcion="El Prestigioso mago Harry Potter deberá ayudar a escapar a su unico tio , de la prisión mas segura del mundo magico"
+                    style="background-image: url('./Imagenes/harryPotter.jpg">
+                </div>
+            </div>
+        </div>
+    <!-- Codigo java script para poder observar mas iformacion de las peliculas cuando se selecciona una de ellas -->
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+        <script>
+            $(document).ready(function () {
+                $('.miniatura').click(function () {
+                    var titulo = $(this).attr('data-titulo');
+                    var descripcion = $(this).attr('data-descripcion');
+                    $('#titulo-principal').text(titulo);
+                    $('#descripcion-principal').text(descripcion);
+                    // Aquí podrías realizar más acciones al hacer clic en una miniatura, como cambiar la imagen de fondo, etc.
+                });
+            });
+        </script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
